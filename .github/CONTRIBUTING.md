@@ -44,12 +44,27 @@
 
 ### 分支
 
+功能 / 行为 / 配置改动从 `mip` 分支或维护者指定的 `mip-*` tag 切；只有文档改动从 `main` 切。
+
 ```bash
-git switch main && git pull --ff-only
-git switch -c feat/<主题>     # 修 Bug 用 fix/<主题>，只改文档用 docs/<主题>
+# 功能：从 mip 切
+git fetch origin
+git switch mip
+git pull --ff-only
+git switch -c feat/<主题>     # 修 Bug 用 fix/<主题>
+
+# 功能：从维护者指定的 mip-* tag 切
+git fetch --tags origin
+git switch -c feat/<主题> <mip-tag>
+
+# 仅文档 / 纯文案
+git switch main
+git pull --ff-only
+git switch -c docs/<主题>
 ```
 
-分支不在 `main` 上、或拉取不是快进 → 停下来问维护者，**不要**自行 `merge` / `rebase` / `reset --hard`。
+`mip` 不存在时，向维护者要指定的 tag；不要从 `main` 直接开功能分支。
+分支不在目标分支上、或拉取不是快进 → 停下来问维护者，**不要**自行 `merge` / `rebase` / `reset --hard`。
 
 ### 提交信息
 
