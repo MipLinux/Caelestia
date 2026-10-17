@@ -1,10 +1,9 @@
-// Zed keymap
+// Zed 键位
 //
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
+// 如何绑定按键见官方文档：
+// https://zed.dev/docs/key-bindings
 //
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
+// 查看默认键位：在命令面板运行 `zed: open default keymap`。
 [
   {
     "context": "Editor",

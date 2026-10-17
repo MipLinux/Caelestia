@@ -5,21 +5,21 @@ return {
     ---- HYPRLAND ----
     ------------------
 
-    -- Apps
+    -- 应用
     terminal                   = "foot",
     browser                    = "firefox",
     editor                     = "codium",
     fileExplorer               = "thunar",
     audioSettings              = "pwvucontrol",
 
-    -- Touchpad
+    -- 触摸板
     touchpadDisableTyping      = true,
     touchpadScrollFactor       = 0.3,
     gestureFingers             = 3,
     workspaceSwipeFingers      = 4,
     gestureFingersMore         = 4,
 
-    -- Blur
+    -- 模糊
     blurEnabled                = true,
     blurSpecialWs              = false,
     blurPopups                 = true,
@@ -28,19 +28,19 @@ return {
     blurPasses                 = 2,
     blurXray                   = false,
 
-    -- Shadow
+    -- 阴影
     shadowEnabled              = true,
     shadowRange                = 15,
     shadowRenderPower          = 4,
     shadowColour               = "rgba(" .. scheme.inversePrimary .. "10)",
 
-    -- Gaps
+    -- 间距
     workspaceGaps              = 20,
     windowGapsIn               = 5,
     windowGapsOut              = 10,
     singleWindowGapsOut        = 20,
 
-    -- Window styling
+    -- 窗口样式
     windowOpacity              = 0.95,
     windowRounding             = 15,
     windowRoundingPower        = 2,
@@ -48,7 +48,7 @@ return {
     activeWindowBorderColour   = "rgba(" .. scheme.primary .. "e6)",
     inactiveWindowBorderColour = "rgba(" .. scheme.onSurfaceVariant .. "11)",
 
-    -- Misc
+    -- 杂项
     volumeStep                 = 10,
     volumeMax                  = 100,
     cursorTheme                = "sweet-cursors",
@@ -56,18 +56,18 @@ return {
     sleepGestureCmd            = "systemctl suspend-then-hibernate",
 
     ------------------
-    ---- KEYBINDS ----
+    ---- 键位 ----
     ------------------
 
-    -- Modifier only, the actual binds will be mod + 0-9. These should be strings and not arrays.
+    -- 仅修饰键；实际绑定为 mod + 0-9。这里应使用字符串，而不是数组。
     kbGoToWs                   = "SUPER",
     kbGoToWsGroup              = "CTRL + SUPER",
     kbMoveWinToWs              = "SUPER + ALT",
     kbMoveWinToWsGroup         = "CTRL + SUPER + ALT",
 
-    -- All the following binds can be either an array of binds to bind multiple keys, or a single string.
+    -- 以下绑定既可以是按键数组（绑定多个键），也可以是单个字符串。
 
-    -- Workspaces
+    -- 工作区
     kbMoveWinToWsSpecial       = { "SUPER + ALT + S", "CTRL + SUPER + SHIFT + Up" },
     kbMoveWinFromWsSpecial     = "CTRL + SUPER + SHIFT + Down",
     kbMoveWinToWsNext          = { "SUPER + ALT + mouse_down", "SUPER + ALT + Page_Down", "CTRL + SUPER + SHIFT + Right" },
@@ -77,7 +77,7 @@ return {
     kbNextWsGroup              = "CTRL + SUPER + mouse_down",
     kbPrevWsGroup              = "CTRL + SUPER + mouse_up",
 
-    -- Window Group
+    -- 窗口组
     kbWindowCycleNext          = "ALT + TAB",
     kbWindowCyclePrev          = "SHIFT + ALT + TAB",
     kbWindowGroupCycleNext     = "CTRL + ALT + TAB",
@@ -86,7 +86,7 @@ return {
     kbToggleGroup              = "SUPER + Comma",
     kbGroupLockActive          = "SUPER + SHIFT + Comma",
 
-    -- Window Actions
+    -- 窗口操作
     kbWindowDecreaseWidth      = { "SUPER + Minus", "SUPER + ALT + Left" },
     kbWindowIncreaseWidth      = { "SUPER + Equal", "SUPER + ALT + Right" },
     kbWindowDecreaseHeight     = { "SUPER + SHIFT + Minus", "SUPER + ALT + Up" },
@@ -103,21 +103,21 @@ return {
     kbToggleWindowFloating     = "SUPER + ALT + Space",
     kbCloseWindow              = "SUPER + Q",
 
-    -- Special workspaces toggles
+    -- 特殊工作区开关
     kbSpecialWs                = "SUPER + S",
     kbSystemMonitorWs          = "CTRL + SHIFT + Escape",
     kbMusicWs                  = "SUPER + M",
     kbCommunicationWs          = "SUPER + D",
     kbTodoWs                   = "SUPER + R",
 
-    -- Apps
+    -- 应用
     kbTerminal                 = "SUPER + T",
     kbBrowser                  = "SUPER + W",
     kbEditor                   = "SUPER + C",
     kbFileExplorer             = "SUPER + E",
     kbAudioSettings            = "CTRL + ALT + V",
 
-    -- Utilities
+    -- 工具
     kbScreenshot               = "Print",
     kbScreenshotFreeze         = "SUPER + SHIFT + S",
     kbScreenshotRegion         = "SUPER + SHIFT + ALT + S",
@@ -126,14 +126,14 @@ return {
     kbRecordRegion             = "SUPER + SHIFT + ALT + R",
     kbColorPicker              = "SUPER + SHIFT + C",
 
-    -- Media
+    -- 媒体
     kbMediaToggle              = "CTRL + SUPER + Space",
     kbMediaNext                = "CTRL + SUPER + Equal",
     kbMediaPrev                = "CTRL + SUPER + Minus",
     kbMediaStop                = "CTRL + SUPER + Backspace",
     kbVolumeMute               = "SUPER + SHIFT + M",
 
-    -- Misc
+    -- 杂项
     kbLauncher                 = "SUPER + SUPER_L",
     kbSession                  = "CTRL + ALT + Delete",
     kbShowSidebar              = "SUPER + N",
@@ -143,7 +143,7 @@ return {
     kbRestoreLock              = "SUPER + ALT + L",
     kbSleep                    = "SUPER + SHIFT + L",
 
-    -- Clipboard and emoji picker
+    -- 剪贴板与 Emoji 选择器
     kbClipboard                = "SUPER + V",
     kbClipboardDel             = "SUPER + ALT + V",
     kbClipboardPasteLatest     = "CTRL + SHIFT + ALT + V",

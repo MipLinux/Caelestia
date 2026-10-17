@@ -1,11 +1,10 @@
-// Zed settings
+// Zed 设置
 //
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
+// 如何配置 Zed 见官方文档：
+// https://zed.dev/docs/configuring-zed
 //
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
+// 如果想查看 Zed 的默认设置而不改动当前配置，
+// 在命令面板（cmd-shift-p / ctrl-shift-p）运行 `zed: open default settings`
 {
   "ui_font_size": 16,
   "buffer_font_size": 16,

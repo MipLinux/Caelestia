@@ -1,15 +1,15 @@
 if status is-interactive
-    # Starship custom prompt
+    # Starship 自定义提示符
     command -v starship &> /dev/null && starship init fish | source
 
     # Direnv + Zoxide
     command -v direnv &> /dev/null && direnv hook fish | source
     command -v zoxide &> /dev/null && zoxide init fish --cmd cd | source
 
-    # Better ls
+    # 更好用的 ls
     command -v eza &> /dev/null && alias ls='eza --icons --group-directories-first -1'
 
-    # Abbrs
+    # 缩写
     abbr lg 'lazygit'
     abbr gd 'git diff'
     abbr ga 'git add .'
@@ -32,15 +32,15 @@ if status is-interactive
     abbr la 'ls -a'
     abbr lla 'ls -la'
 
-    # Custom colours
+    # 自定义配色
     cat ~/.local/state/caelestia/sequences.txt 2> /dev/null
 
-    # For jumping between prompts in foot terminal
+    # 用于在 foot 终端里在提示符之间跳转
     function mark_prompt_start --on-event fish_prompt
         echo -en "\e]133;A\e\\"
     end
 
-    # Custom fish config
+    # 自定义 fish 配置
     set -q XDG_CONFIG_HOME && set -l cConf $XDG_CONFIG_HOME/caelestia || set -l cConf $HOME/.config/caelestia
     source $cConf/user-config.fish 2> /dev/null
 end

@@ -5,7 +5,7 @@ post_install = [
 ]
 post_update = ["caelestia shell -k; sleep 1; caelestia shell -d >/dev/null"]
 
-# --- Core components ---
+# --- 核心组件 ---
 
 [[components]]
 name = "hypr"
@@ -106,7 +106,7 @@ name = "qt"
 default = true
 packages = [
     "qtengine",
-    "frameworkintegration", # Darkly has this as a dep but is missing it from its PKGBUILD
+    "frameworkintegration", # Darkly 依赖它，但自己的 PKGBUILD 漏掉了
     "darkly-bin",
     "papirus-icon-theme",
     "papirus-folders",
@@ -168,7 +168,7 @@ packages = [
 post_install = ["xdg-user-dirs-update"]
 
 
-# --- Optional components ---
+# --- 可选组件 ---
 
 [[components]]
 name = "spotify"
@@ -245,7 +245,7 @@ packages = ["uwsm"]
 src = "uwsm"
 dest = "$XDG_CONFIG_HOME/uwsm"
 
-# Zen theming doesn't currently work
+# Zen 主题目前不可用
 [[components]]
 name = "zen"
 packages = ["zen-browser-bin"]
