@@ -1,0 +1,85 @@
+name: 工作分配
+description: 一条有明确目标、实现范围、验收判据与回报要求的工作
+title: "[工作] "
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        一条工作 = 一个 issue。**验收写不出来就别开** —— 写不出判据，说明这件事还没想清楚。
+
+        字段怎么用：
+        - **目标**写「什么从不能变成能」，不写做法；
+        - **实现**逐个写出仓库内路径，并明确**不**做什么；
+        - **验收**写命令 + 期望结果，不写「能用了」「看起来正常」；
+        - 受理人用 GitHub 的 Assignees 控件选择，不写进正文。
+
+        合并前先读 [CONTRIBUTING.md](https://github.com/MipLinux/Caelestia/blob/main/.github/CONTRIBUTING.md)；
+        审查流程见 [.github/review/README.md](https://github.com/MipLinux/Caelestia/blob/main/.github/review/README.md)。
+
+  - type: input
+    id: goal
+    attributes:
+      label: 目标
+      description: 一句话，写「什么从不能变成能 / 从错变成对」，不写做法。
+      placeholder: 例如：缺少用户覆盖文件时，Hyprland 的 Lua 配置不再报错，装完直接可用。
+    validations:
+      required: true
+
+  - type: textarea
+    id: implement
+    attributes:
+      label: 实现
+      description: |
+        做什么、**改哪些文件（逐个写仓库内路径）**、明确**不**做什么。
+        路径写出来，所有权才切得开 —— 撞在同一批文件上的两条线没法并行。
+      placeholder: |
+        改 hypr/hyprland.lua 与 hypr/variables.lua；
+        不碰 hypr/scheme/（生成目录，更新时会被覆盖）。
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收
+      description: |
+        能在本机跑出来的判据：**命令 + 期望结果**。
+        没有实测证据不许写「已验证」，只能写 未实测 / 仅静态检查 / 仅 dry-run。
+      placeholder: |
+        `luac -p hypr/hyprland.lua` → 退出码 0；
+        在测试用户执行 `hyprctl reload` → 退出码 0，`hyprctl configerrors` 无输出。
+    validations:
+      required: true
+
+  - type: textarea
+    id: report
+    attributes:
+      label: 回报
+      description: 做完交什么、给谁 —— 命令输出、文件路径、实测结果，写清楚。
+      placeholder: 例如：把 `luac -p` 与 `hyprctl configerrors` 的输出贴在 issue 下，并 @ 维护者过目。
+    validations:
+      required: true
+
+  - type: textarea
+    id: depends-on
+    attributes:
+      label: 依赖
+      description: 被哪个 issue / 组件 / 上游改动卡住；没有就写「无」。
+      placeholder: 无
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+
+        **开工前请执行：**
+
+        ```bash
+        git switch main && git pull origin main
+        git switch -c feat/<主题>   # 只改文档用 docs/<主题>
+        ```
+
+        > 分支不在 `main` 上、或拉取不是快进 → 停下来问维护者，**不要**自行 `merge` / `rebase` / `reset --hard`。

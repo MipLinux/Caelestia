@@ -1,0 +1,73 @@
+name: 功能请求
+description: 提出一个新想法或改进建议
+title: "[功能] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你的想法。请尽量把「问题」和「方案」分开讲 ——
+        描述清楚你遇到的问题，往往比直接给方案更有价值，因为方案可以有很多种。
+
+        > 顶栏、面板、启动器等 shell 组件的新功能请提到 [shell 仓库](https://github.com/caelestia-dots/shell/issues)。
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: 提交前确认
+      options:
+        - label: 我已经搜索过现有 Issue，没有重复
+          required: true
+        - label: 这不是安全漏洞报告（安全漏洞请走 SECURITY.md 的私下通道）
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你想解决的是什么问题
+      description: 描述问题本身，而不是你期望的答案。
+      placeholder: 当……的时候，我总是需要……，这让我觉得……
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你期望的方案
+      description: 你希望 Caelestia 怎么做。如果还没想好，写「未定」也可以。
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 你考虑过的替代方案
+      description: 有没有别的做法也能解决？为什么你更倾向上面那个？
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 相关范围
+      options:
+        - Hyprland / Wayland
+        - 终端与 shell 环境（fish / foot / starship）
+        - 系统信息（fastfetch / btop）
+        - 浏览器主题（firefox / zen）
+        - 文件管理器（thunar）
+        - 编辑器（micro / nvim / vscode / zed）
+        - 主题 / scheme / 配色
+        - 安装 / 更新流程
+        - 文档与协作流程
+        - 其它 / 不确定
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 补充说明
+      description: 截图、参考项目、相关链接等。
+    validations:
+      required: false
