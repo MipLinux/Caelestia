@@ -1,1 +1,11 @@
 blank_issues_enabled: false
+contact_links:
+  - name: 🔒 报告安全漏洞
+    url: https://github.com/MipLinux/.github/blob/main/SECURITY.md
+    about: 请不要在公开 Issue 中披露安全问题，请走私下报告通道。
+  - name: 💬 先读项目文档
+    url: https://github.com/MipLinux/Caelestia/blob/main/README.md
+    about: 安装、更新与配置说明在这份 README 里，可能已经回答了你的问题。
+  - name: 🐚 shell 本身的问题
+    url: https://github.com/caelestia-dots/shell/issues
+    about: 顶栏、面板、启动器等 shell 组件的问题请提到 shell 仓库。
