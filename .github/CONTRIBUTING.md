@@ -5,9 +5,11 @@
 
 | 仓库 | 内容 |
 |---|---|
-| [`MipLinux/Caelestia`](https://github.com/MipLinux/Caelestia) | 本仓库：dotfiles 与主题配置 |
-| [`caelestia-dots/shell`](https://github.com/caelestia-dots/shell) | 顶栏、面板、启动器等 shell 本体 |
-| [`caelestia-dots/cli`](https://github.com/caelestia-dots/cli) | `caelestia` 安装 / 更新命令 |
+| [`MipLinux/Caelestia-dotfiles`](https://github.com/MipLinux/Caelestia-dotfiles) | 本仓库：dotfiles 与主题配置 |
+| [`MipLinux/Caelestia-shell`](https://github.com/MipLinux/Caelestia-shell) | 顶栏、面板、启动器等 shell 本体（fork） |
+| [`MipLinux/Caelestia-cli`](https://github.com/MipLinux/Caelestia-cli) | `caelestia` 安装 / 更新命令（fork） |
+| [`caelestia-dots/shell`](https://github.com/caelestia-dots/shell) | shell 上游 |
+| [`caelestia-dots/cli`](https://github.com/caelestia-dots/cli) | CLI 上游 |
 | [`MipLinux/MipLinux`](https://github.com/MipLinux/MipLinux) | 发行版构建仓库；桌面配置取自本仓库 |
 
 ---
@@ -21,7 +23,7 @@
 | 3 | [`.github/review/README.md`](review/README.md) | 自动审查流程与所需 secrets / variables |
 | 4 | [`.github/pull_request_template.md`](pull_request_template.md) | PR 必须填的三节 |
 
-**不要**把本仓库当成 shell 仓库来改。顶栏、面板、启动器的行为问题请提到 shell 仓库。
+**不要**把本仓库当成 shell 仓库来改。顶栏、面板、启动器的行为问题请提到 [`Caelestia-shell`](https://github.com/MipLinux/Caelestia-shell)。
 
 ---
 
@@ -29,20 +31,40 @@
 
 ### 一条工作 = 一个 issue
 
-功能、重构、需要跨文件协调的改动，先在 [Issues](https://github.com/MipLinux/Caelestia/issues?q=label%3Atask)
+功能、重构、需要跨文件协调的改动，先在 [Issues](https://github.com/MipLinux/Caelestia-dotfiles/issues?q=label%3Atask)
 开一条带 `task` label 的工作 issue，写清「目标 / 实现 / 验收 / 回报 / 依赖」。
 `assignee` 就是受理人；没有对应 issue 的改动，维护者可以要求先补。
 
 小修、纯文档改动可以直接开 PR，但仍要走模板里的「验证方式」。
 
+### 上游同步
+
+`main` 跟踪上游，只保留最小的 MipLinux 文档 / 许可声明；功能 / 行为 / 配置改动放 `mip` 分支 / tag，PR 描述里记录上游 base commit。
+不重写历史；dots / shell / cli 与 Quickshell 的 pin 一起对齐，不单独升级其中一个。
+
 ### 分支
 
+功能 / 行为 / 配置改动从 `mip` 分支或维护者指定的 `mip-*` tag 切；只有文档改动从 `main` 切。
+
 ```bash
-git switch main && git pull --ff-only
-git switch -c feat/<主题>     # 修 Bug 用 fix/<主题>，只改文档用 docs/<主题>
+# 功能：从 mip 切
+git fetch origin
+git switch mip
+git pull --ff-only
+git switch -c feat/<主题>     # 修 Bug 用 fix/<主题>
+
+# 功能：从维护者指定的 mip-* tag 切
+git fetch --tags origin
+git switch -c feat/<主题> <mip-tag>
+
+# 仅文档 / 纯文案
+git switch main
+git pull --ff-only
+git switch -c docs/<主题>
 ```
 
-分支不在 `main` 上、或拉取不是快进 → 停下来问维护者，**不要**自行 `merge` / `rebase` / `reset --hard`。
+`mip` 不存在时，向维护者要指定的 tag；不要从 `main` 直接开功能分支。
+分支不在目标分支上、或拉取不是快进 → 停下来问维护者，**不要**自行 `merge` / `rebase` / `reset --hard`。
 
 ### 提交信息
 
@@ -121,4 +143,4 @@ bash -n firefox/init_firefox.sh
 
 ## 许可
 
-本仓库沿用 Caelestia 上游的 [GPL-3.0](../LICENSE)。提交即表示你同意以同一许可证发布你的贡献。
+本仓库以 **GPL-3.0-only** 发布（上游 Caelestia 的 LICENSE 为 GPLv3），全文见 [LICENSE](../LICENSE)，版权与修改声明见 [NOTICE](../NOTICE.md)。提交即表示你同意以同一许可证发布你的贡献；修改上游文件时保留原版权声明并标明改动。
